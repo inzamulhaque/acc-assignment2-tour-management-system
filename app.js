@@ -10,6 +10,6 @@ app.get("/", (req, res) => {
   res.send("Route is working! YaY!");
 });
 
-app.use("/api/v1/tours", tourstRouter);
+app.use("/tours", tourstRouter);
 
 module.exports = app;
