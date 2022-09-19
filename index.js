@@ -15,10 +15,3 @@ app.listen(port, () => {
 });
 
 app.use(errorHandler);
-
-process.on("unhandledRejection", (error) => {
-  console.log(error.name, error.message);
-  app.close(() => {
-    process.exit(1);
-  });
-});
