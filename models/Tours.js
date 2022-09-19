@@ -17,6 +17,8 @@ const toursShema = mongoose.Schema(
       required: [true, "please provide a description for this tours"],
     },
 
+    image: String,
+
     cost: {
       type: Number,
       required: [true, "please provide cost for this tours"],

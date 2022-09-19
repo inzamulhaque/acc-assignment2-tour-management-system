@@ -8,7 +8,7 @@ const getAllTours = async (req, res, next) => {
 
     const tours = await Tours.find()
       .select(fields)
-      .skip((+page - 1) * limit)
+      .skip((+page - 1) * +limit)
       .limit(+limit)
       .sort(sort);
     if (!tours) {
