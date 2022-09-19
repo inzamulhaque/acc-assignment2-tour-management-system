@@ -5,11 +5,11 @@ const toursShema = mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "please provide a name for this tours"],
+      required: [true, "please provide a packageName for this tours"],
       trim: true, // age ba picher space gula kete dey
-      unique: [true, "name must be unique"],
-      minLength: [3, "name must be at least 3 characters"],
-      maxLength: [100, "name is to large"],
+      unique: [true, "packageName must be unique"],
+      minLength: [3, "packageName must be at least 3 characters"],
+      maxLength: [100, "packageName is to large"],
     },
 
     description: {
@@ -38,6 +38,12 @@ const toursShema = mongoose.Schema(
         },
       },
       message: "visitor must be an integer",
+    },
+
+    viewCount: {
+      type: Number,
+      default: 0,
+      required: true,
     },
 
     status: {

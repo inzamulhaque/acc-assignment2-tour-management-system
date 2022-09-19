@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const colors = require("colors");
 const app = require("./app");
+const errorHandler = require("./middleware/errorHandler");
 const port = process.env.PORT || 7000;
 
 // database connection
@@ -11,4 +12,13 @@ mongoose.connect(process.env.DB_URI).then(() => {
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`.yellow.bold);
+});
+
+app.use(errorHandler);
+
+process.on("unhandledRejection", (error) => {
+  console.log(error.name, error.message);
+  app.close(() => {
+    process.exit(1);
+  });
 });
